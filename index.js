@@ -372,7 +372,7 @@ wjs.prototype.addPlayer = function(wcpSettings) {
                     }
                 }
 
-                wjsPlayer.find(".wcp-toolbar").stop().show(0);
+                wjsPlayer.find(".wcp-toolbar").stop();
                 if (!volDrag && !seekDrag) {
                     if ($(wjsPlayer.find(".wcp-toolbar").selector + ":hover").length > 0) {
                         vlcs[wjsPlayer.context].hideUI = setTimeout(function(i) { return function() { hideUI.call(players[i]); } }(wjsPlayer.context),3000);
@@ -1172,7 +1172,7 @@ wjs.prototype.ui = function(newBool) {
             if (opts[this.context].uiHidden) {
                 opts[this.context].uiHidden = false;
                 this.find(".wcp-titlebar").stop().show(0);
-                this.find(".wcp-toolbar").stop().show(0);
+                this.find(".wcp-toolbar").stop();
                 if (this.wrapper.css('cursor') == 'none') this.wrapper.css({cursor: 'default'});
                 return true;
             } else return false;
@@ -1517,7 +1517,7 @@ function hideUI() {
         } else {
             if (["both","fullscreen"].indexOf(opts[this.context].titleBar) > -1) this.find(".wcp-titlebar").stop().fadeOut();
         }
-        this.find(".wcp-toolbar").stop().fadeOut();
+        this.find(".wcp-toolbar").stop();
         this.find(".wcp-tooltip").stop().fadeOut();
         this.wrapper.css({cursor: 'none'});
     }
