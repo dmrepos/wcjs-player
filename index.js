@@ -335,7 +335,7 @@ wjs.prototype.addPlayer = function(wcpSettings) {
                 wjsPlayer.fullscreen(true);
                 if (wjsPlayer.wrapper.css('cursor') == 'none') wjsPlayer.wrapper.css({cursor: 'default'});
                 if (wjsPlayer.mute()) wjsPlayer.mute(false);
-            } else wjsPlayer.togglePause().animatePause();
+            } else wjsPlayer.toggleFullscreen();
         }
         if ([5].indexOf(wjsPlayer.vlc.state) > -1 && !wjsPlayer.playing() && wjsPlayer.itemCount() > 0) wjsPlayer.play().animatePause();
     });
