@@ -1224,7 +1224,7 @@ function fullscreenOn() {
         var that = this;
         setTimeout(function() {
             singleResize.call(that, that.canvas.width, that.canvas.height);
-        }, 200);
+        }, 10);
 
         return true;
     } else return false;
@@ -1257,7 +1257,7 @@ function fullscreenOff() {
         var that = this;
         setTimeout(function() {
             singleResize.call(that, that.canvas.width, that.canvas.height);
-        }, 200);
+        }, 10);
 
         return true;
     } else return false;
