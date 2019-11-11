@@ -293,8 +293,10 @@ wjs.prototype.addPlayer = function (wcpSettings) {
         if (!window.checkToggleFullscreen) {
             window.checkToggleFullscreen = true;
             ipcRenderer.send('toggle-menu-bar', []);
-            wjsPlayer = getContext(this);
-            wjsPlayer.toggleFullscreen();
+            setTimeout(function () {
+                wjsPlayer = getContext(this);
+                wjsPlayer.toggleFullscreen();
+            }, 50);
             setTimeout(function () {
                 window.checkToggleFullscreen = false;
             }, 100);
