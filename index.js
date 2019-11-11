@@ -283,19 +283,12 @@ wjs.prototype.addPlayer = function (wcpSettings) {
             }
         }(newid));
     }
+
+    wjs(newid).wrapper.find(".wcp-surface").click(function () {
+        wjsPlayer = getContext(this);
+        wjsPlayer.toggleFullscreen();
+    });
     
-    function ready() {
-        var videoDivs = document.querySelectorAll(".wcp-surface");
-        videoDivs.forEach(function (videoDiv) {
-            videoDiv.addEventListener('click', function () {
-                wjsPlayer = getContext(this);
-                wjsPlayer.toggleFullscreen();
-            });
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', ready);
-
     wjs(newid).wrapper.parent().bind("mousemove", function (e) {
         wjsPlayer = getContext(this);
         if (opts[wjsPlayer.context].uiHidden === false) {
