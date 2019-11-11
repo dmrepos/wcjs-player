@@ -284,7 +284,7 @@ wjs.prototype.addPlayer = function (wcpSettings) {
         }(newid));
     }
 
-    wjs(newid).wrapper.find(".wcp-surface").on("click touchstart",function () {
+    wjs(newid).wrapper.find(".wcp-surface").bind("click touchstart",function (e) {
         wjsPlayer = getContext(this);
         wjsPlayer.toggleFullscreen();
     });
