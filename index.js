@@ -291,12 +291,10 @@ wjs.prototype.addPlayer = function (wcpSettings) {
     wjs(newid).wrapper.find(".wcp-surface").bind("click touchstart", function (event) {
         event.preventDefault();
         if (!window.checkToggleFullscreen) {
-            window.checkToggleFullscreen = true;
             ipcRenderer.send('toggle-menu-bar', []);
-            setTimeout(function () {
-                wjsPlayer = getContext(this);
-                wjsPlayer.toggleFullscreen();
-            }, 50);
+            window.checkToggleFullscreen = true;
+            wjsPlayer = getContext(this);
+            wjsPlayer.toggleFullscreen();
             setTimeout(function () {
                 window.checkToggleFullscreen = false;
             }, 100);
