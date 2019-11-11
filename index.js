@@ -45,6 +45,8 @@ if (!$("link[href='" + relbase + "/css/general.css']").length) {
     window.document.styleSheets[0].addRule('.wcp-menu-items::-webkit-scrollbar-thumb:active', 'background-color: #e5e5e5 !important; border-right: 13px solid rgba(0, 0, 0, 0); border-left: 21px solid rgba(0, 0, 0, 0); background-clip: padding-box; -webkit-box-shadow: none !important;');
 }
 
+window.checkToggleFullscreen = false;
+
 // deinitializate when page changed
 window.addEventListener('beforeunload', function (e) {
     // stop all players
@@ -284,11 +286,18 @@ wjs.prototype.addPlayer = function (wcpSettings) {
         }(newid));
     }
 
-    wjs(newid).wrapper.find(".wcp-surface").bind("click touchstart",function (e) {
-        wjsPlayer = getContext(this);
-        wjsPlayer.toggleFullscreen();
+    wjs(newid).wrapper.find(".wcp-surface").bind("click touchstart", function (event) {
+        event.preventDefault();
+        if (!window.checkToggleFullscreen) {
+            window.checkToggleFullscreen = true;
+            wjsPlayer = getContext(this);
+            wjsPlayer.toggleFullscreen();
+            setTimeout(function () {
+                window.checkToggleFullscreen = false;
+            }, 100);
+        }
     });
-    
+
     wjs(newid).wrapper.parent().bind("mousemove", function (e) {
         wjsPlayer = getContext(this);
         if (opts[wjsPlayer.context].uiHidden === false) {
