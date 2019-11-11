@@ -47,6 +47,8 @@ if (!$("link[href='" + relbase + "/css/general.css']").length) {
 
 window.checkToggleFullscreen = false;
 
+var ipcRenderer = require('electron').ipcRenderer;
+
 // deinitializate when page changed
 window.addEventListener('beforeunload', function (e) {
     // stop all players
@@ -290,6 +292,7 @@ wjs.prototype.addPlayer = function (wcpSettings) {
         event.preventDefault();
         if (!window.checkToggleFullscreen) {
             window.checkToggleFullscreen = true;
+            ipcRenderer.send('toggle-menu-bar', []);
             wjsPlayer = getContext(this);
             wjsPlayer.toggleFullscreen();
             setTimeout(function () {
