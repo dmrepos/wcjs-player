@@ -284,16 +284,10 @@ wjs.prototype.addPlayer = function (wcpSettings) {
         }(newid));
     }
 
-    function ready() {
-        var videoDivs = document.querySelectorAll(".wcp-surface");
-        videoDivs.forEach(function (videoDiv) {
-            videoDiv.addEventListener('touchend', function () {
-                wjsPlayer = getContext(this);
-                wjsPlayer.toggleFullscreen();
-            });
-        });
-    }
-    document.addEventListener('DOMContentLoaded', ready);
+    wjs(newid).wrapper.find(".wcp-surface").on("click touchstart",function () {
+        wjsPlayer = getContext(this);
+        wjsPlayer.toggleFullscreen();
+    });
     
     wjs(newid).wrapper.parent().bind("mousemove", function (e) {
         wjsPlayer = getContext(this);
