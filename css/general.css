@@ -239,7 +239,10 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 3;
+	z-index: 10;
+	background: transparent; 
+	user-select: none;
+	touch-action: manipulation;
 }
 
 .wcp-titlebar {
@@ -476,7 +479,7 @@
 
 .wcp-tooltip {
 	position: absolute;
-	z-index: 1070;
+	z-index: 9;
 	display: block;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 12px;
