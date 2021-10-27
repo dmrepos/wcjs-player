@@ -1187,7 +1187,7 @@ function fullscreenOn() {
 function fullscreenOff() {
     if (window.document.webkitFullscreenElement != null) {
         window.screenLocked = true;
-        ipcRenderer.send('set-to-lock-screen', []);
+        ipcRenderer.send('unlock-screen-interval', []);
         if (["none", "fullscreen"].indexOf(opts[this.context].titleBar) > -1) {
             this.find(".wcp-titlebar").hide(0);
             if (this.find(".wcp-status").css("top") == "35px") this.find(".wcp-status").css("top", "10px");
