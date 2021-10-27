@@ -120,7 +120,7 @@
 
 .wcp-menu-item:hover {
 	background-color: #3d3d3d;
-	cursor: pointer;
+	/*cursor: pointer;*/
 	color: #c0c0c0;
 }
 
@@ -175,7 +175,7 @@
 }
 
 .sortable-dragging {
-	cursor: -webkit-grabbing !important;
+	/*cursor: -webkit-grabbing !important;*/
 	background-color: #3d3d3d !important;
 	color: #c0c0c0 !important;
 	opacity: 0.8;
@@ -207,7 +207,7 @@
 .wcp-menu-close:hover {
 	background-color: #151515;
 	color: #eaeaea;
-	cursor: pointer
+	/*cursor: pointer;*/
 }
 
 .wcp-menu-close:before {
@@ -287,7 +287,7 @@
 	left: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 .wcp-progress-seen {
@@ -322,7 +322,7 @@
 
 .wcp-button:hover {
 	color: #ffffff;
-	cursor: pointer
+	/*cursor: pointer;*/
 }
 
 .wcp-left {
@@ -360,7 +360,7 @@
 	background: #696969;
 	position: relative;
 	top: 11px;
-	cursor: pointer;
+	/*cursor: pointer;*/
 	vertical-align: top;
 }
 
