@@ -47,8 +47,6 @@ if (!$("link[href='" + relbase + "/css/general.css']").length) {
 
 window.checkToggleFullscreen = false;
 
-window.screenLocked = true;
-
 var ipcRenderer = require('electron').ipcRenderer;
 
 // deinitializate when page changed
@@ -292,7 +290,7 @@ wjs.prototype.addPlayer = function (wcpSettings) {
 
     wjs(newid).wrapper.find(".wcp-surface").bind("click touchstart", function (event) {
         event.preventDefault();
-        if (!window.checkToggleFullscreen && !window.screenLocked) {
+        if (!window.checkToggleFullscreen) {
             ipcRenderer.send('toggle-menu-bar', []);
             window.checkToggleFullscreen = true;
             wjsPlayer = getContext(this);
@@ -1159,8 +1157,6 @@ wjs.prototype.animatePause = function () {
 
 function fullscreenOn() {
     if (window.document.webkitFullscreenElement == null) {
-        window.screenLocked = false;
-        ipcRenderer.send('set-to-unlock-screen', []);
         if (opts[this.context].titleBar == "none" || opts[this.context].titleBar == "minimized") {
             this.find(".wcp-titlebar").hide(0);
             if (this.find(".wcp-status").css("top") == "35px") this.find(".wcp-status").css("top", "10px");
@@ -1186,8 +1182,6 @@ function fullscreenOn() {
 
 function fullscreenOff() {
     if (window.document.webkitFullscreenElement != null) {
-        window.screenLocked = true;
-        ipcRenderer.send('unlock-screen-interval', []);
         if (["none", "fullscreen"].indexOf(opts[this.context].titleBar) > -1) {
             this.find(".wcp-titlebar").hide(0);
             if (this.find(".wcp-status").css("top") == "35px") this.find(".wcp-status").css("top", "10px");
